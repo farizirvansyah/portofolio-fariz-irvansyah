@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2026 at 09:59 AM
+-- Generation Time: Aug 04, 2026 at 10:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,6 +40,31 @@ CREATE TABLE `contacts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `myblog`
+--
+
+CREATE TABLE `myblog` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `subtitle` varchar(255) NOT NULL,
+  `image` varchar(100) NOT NULL DEFAULT current_timestamp(),
+  `link` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `myblog`
+--
+
+INSERT INTO `myblog` (`id`, `title`, `subtitle`, `image`, `link`, `created_at`, `updated_at`) VALUES
+(1, 'Blog 1', 'Lorem ipsum', '6a718ff9dc4db_japan1.jpg', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '2026-08-04 07:08:41', NULL),
+(2, 'Blog 2', 'Lorem ipsum', '6a71902875346_japan2.jpg', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '2026-08-04 07:09:16', '2026-08-04 07:09:28'),
+(3, 'Blog 3', 'Lorem ipsum', '6a7190342c670_japan3.jpg', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '2026-08-04 07:09:40', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -49,6 +74,32 @@ CREATE TABLE `product` (
   `price` decimal(15,2) NOT NULL,
   `category` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `subtitle` varchar(50) NOT NULL,
+  `link` varchar(50) DEFAULT NULL,
+  `image` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `title`, `subtitle`, `link`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Japan', 'Aih', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '6a716f1c93a7b_japan1.jpg', '2026-08-04 04:25:23', '2026-08-04 04:49:27'),
+(2, 'Japan', 'Aih', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '6a716f63e23c4_japan2.jpg', '2026-08-04 04:49:39', NULL),
+(3, 'Japan', 'Aih', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '6a716f6db49bd_japan3.jpg', '2026-08-04 04:49:49', NULL),
+(4, 'Japan', 'Aih', 'https://bootstrapmade.com/bootstrap-portfolio-temp', '6a716f75bd701_japan4.jpg', '2026-08-04 04:49:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +169,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`id`, `name`, `progress`, `created_at`, `updated-at`) VALUES
-(1, 'HTML5', 5, '0000-00-00 00:00:00', '2026-08-03 07:46:38'),
+(1, 'HTML5', 95, '0000-00-00 00:00:00', '2026-08-04 01:15:22'),
 (2, 'CSS3', 95, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'C#', 95, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'Unity Engine', 90, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -151,7 +202,7 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `subtitle`, `description`, `button1_text`, `button1_link`, `button2_text`, `button2_link`, `image`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'PPKD JP', 'Pusat Pelatihan Kerja Daerah - Jakarta Pusat', 'Pusat Pelatihan Kerja Daerah (PPKD) Jakarta Pusat adalah program pelatihan kerja berbasis kompetensi gratis yang diselenggarakan oleh Pemerintah Provinsi DKI Jakarta. Program ini berada di bawah naungan Unit Pelaksana Teknis (UPT) Dinas Tenaga Kerja, Transmigrasi, dan Energi Provinsi DKI Jakarta.', 'Butt 1', 'https://Linkbut1.com', 'Butt 2', 'https://Linkbut2.com', '6a700eb742e11_logo_ppkdjp.jpg', 1, '2026-08-03 03:44:55', NULL);
+(1, 'PPKD JP', 'Pusat Pelatihan Kerja Daerah - Jakarta Pusat', 'Pusat Pelatihan Kerja Daerah (PPKD) Jakarta Pusat adalah program pelatihan kerja berbasis kompetensi gratis yang diselenggarakan oleh Pemerintah Provinsi DKI Jakarta. Program ini berada di bawah naungan Unit Pelaksana Teknis (UPT) Dinas Tenaga Kerja, Transmigrasi, dan Energi Provinsi DKI Jakarta.', 'Butt 1', 'https://Linkbut1.com', 'Butt 2', 'https://Linkbut2.com', '6a716d5a94de5_logo_ppkdjp.jpg', 1, '2026-08-03 03:44:55', '2026-08-04 04:40:58');
 
 -- --------------------------------------------------------
 
@@ -171,7 +222,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Fariz Irvansyah', 'fariz.irvansyah@gmail.com', '9adcb29710e807607b683f62e555c22dc5659713');
+(1, 'Fariz Irvansyah', 'fariz.irvansyah@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
 
 --
 -- Indexes for dumped tables
@@ -184,9 +235,21 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `myblog`
+--
+ALTER TABLE `myblog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -230,10 +293,22 @@ ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `myblog`
+--
+ALTER TABLE `myblog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `resume`
