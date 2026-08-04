@@ -32,7 +32,6 @@ if (isset($_POST['save'])) {
       $old_picture_path = "assets/img/" . $row['image'];
       if (file_exists($old_picture_path)){
         unlink($old_picture_path);
-        exit();
       }
     }
     move_uploaded_file($image['tmp_name'], $filepath);

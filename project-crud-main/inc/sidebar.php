@@ -54,6 +54,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="projects.php" aria-expanded="false">
+                        <i class="fas fa-tasks"></i>
+                        <p>Projects</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="myblogs.php" aria-expanded="false">
+                        <i class="fas fa-receipt"></i>
+                        <p>My Blog</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="contact.php" aria-expanded="false">
                         <i class="fas fa-address-book"></i>
                         <p>Contact</p>

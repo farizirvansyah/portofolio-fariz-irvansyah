@@ -16,6 +16,15 @@ $resume = mysqli_fetch_all($q_resume, MYSQLI_ASSOC);
 // Skills
 $q_skills = mysqli_query($conn, "SELECT * FROM skills ORDER BY id ASC LIMIT 6");
 $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
+// Projects
+$q_projects = mysqli_query($conn, "SELECT * FROM projects ORDER BY id ASC LIMIT 6");
+$projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
+// Projects
+$q_projects = mysqli_query($conn, "SELECT * FROM projects ORDER BY id ASC LIMIT 6");
+$projects = mysqli_fetch_all($q_projects, MYSQLI_ASSOC);
+// My Blog
+$q_myblog = mysqli_query($conn, "SELECT * FROM myblog ORDER BY id DESC LIMIT 3");
+$myblog = mysqli_fetch_all($q_myblog, MYSQLI_ASSOC);
 // var_dump($about);
 ?>
 
@@ -50,7 +59,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Clark</a>
+			<a class="navbar-brand" href="index.php"><?= $user['name'] ?></a>
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
@@ -336,7 +345,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							</div>
 						</div>
 					</div>
-						<?php
+					<?php
 				}
 				?>
 				<!-- <div class="col-md-6 animate-box">
@@ -409,70 +418,21 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-4.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-5.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-8">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-1.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
-						</div>
-					</div>
-
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-6.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
-							<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-							<span>Web Design</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-								style="background-image: url(images/project-2.jpg);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-									<span>Web Design</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-								style="background-image: url(images/project-3.jpg);">
-								<div class="overlay"></div>
-								<div class="text text-center p-4">
-									<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-									<span>Web Design</span>
-								</div>
+				<?php
+				foreach ($projects as $index => $v):
+					$colClass = ($index % 2 == 0) ? 'col-md-8' : 'col-md-4';
+					?>
+					<div class="<?= $colClass ?>">
+						<div class="project img ftco-animate d-flex justify-content-center align-items-center"
+							style="background-image: url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+							<div class="overlay"></div>
+							<div class="text text-center p-4">
+								<h3><a href="<?= $v['link'] ?>"><?= $v['title'] ?></a></h3>
+								<span><?= $v['subtitle'] ?></span>
 							</div>
 						</div>
 					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
@@ -488,63 +448,31 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 				</div>
 			</div>
 			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
+				<?php
+				foreach ($myblog as $v) {
+					?>
+					<div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry justify-content-end">
+							<a href="<?= $v['link'] ?>" class="block-20"
+								style="background-image: url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+							</a>
+							<div class="text mt-3 float-right d-block">
+								<div class="d-flex align-items-center mb-3 meta">
+									<p class="mb-0">
+										<span class="mr-2"><?= $v['created_at'] ?></span>
+										<a href="#" class="mr-2"><?= $user['name'] ?></a>
+										<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+									</p>
+								</div>
+								<h3 class="heading"><a href="single.html"><?= $v['title'] ?></a>
+								</h3>
+								<p><?= $v['subtitle'] ?></p>
 							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
-							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
-							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-						</div>
-					</div>
-				</div>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 	</section>
@@ -617,7 +545,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							<span class="icon-map-signs"></span>
 						</div>
 						<h3 class="mb-4">Address</h3>
-						<p>198 West 21th Street, Suite 721 New York NY 10016</p>
+						<p><?= $about['address'] ?></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -626,7 +554,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							<span class="icon-phone2"></span>
 						</div>
 						<h3 class="mb-4">Contact Number</h3>
-						<p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+						<p><a href="tel://1234567920"><?= $about['phone'] ?></a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -635,7 +563,7 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							<span class="icon-paper-plane"></span>
 						</div>
 						<h3 class="mb-4">Email Address</h3>
-						<p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+						<p><a href="mailto:<?= $about['email'] ?>"><?= $about['email'] ?></a></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -644,14 +572,15 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 							<span class="icon-globe"></span>
 						</div>
 						<h3 class="mb-4">Website</h3>
-						<p><a href="#">yoursite.com</a></p>
+						<p><a href="#"><?= $about['website_name'] ?></a></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="row no-gutters block-9">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="#" class="bg-light p-4 p-md-5 contact-form">
+
+					<form action="project-crud-main/contact.php" class="bg-light p-4 p-md-5 contact-form" method="post">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Your Name">
 						</div>
@@ -678,7 +607,6 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 			</div>
 		</div>
 	</section>
-
 
 	<footer class="ftco-footer ftco-section">
 		<div class="container">
@@ -749,8 +677,6 @@ $skills = mysqli_fetch_all($q_skills, MYSQLI_ASSOC);
 			</div>
 		</div>
 	</footer>
-
-
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
