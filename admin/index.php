@@ -1,5 +1,5 @@
 <?php
-include "../project-crud-main/config/koneksi.php";
+include "../admin/config/koneksi.php";
 session_start();
 session_regenerate_id();
 

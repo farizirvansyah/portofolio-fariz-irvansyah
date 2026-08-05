@@ -24,55 +24,55 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item">
-                    <a href="dashboard.php" aria-expanded="false">
+                    <a href="app.php?page=dashboard" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="user.php" aria-expanded="false">
+                    <a href="app.php?page=user" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         <p>User</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="slider.php" aria-expanded="false">
+                    <a href="app.php?page=slider" aria-expanded="false">
                         <i class="fas fa-image"></i>
                         <p>Slider</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="resume.php" aria-expanded="false">
+                    <a href="app.php?page=resume" aria-expanded="false">
                         <i class="fas fa-id-card"></i>
                         <p>Resume</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="skills.php" aria-expanded="false">
+                    <a href="app.php?page=skills" aria-expanded="false">
                         <i class="fas fa-code"></i>
                         <p>Skills</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="projects.php" aria-expanded="false">
+                    <a href="app.php?page=projects" aria-expanded="false">
                         <i class="fas fa-tasks"></i>
                         <p>Projects</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="myblogs.php" aria-expanded="false">
+                    <a href="app.php?page=myblogs" aria-expanded="false">
                         <i class="fas fa-receipt"></i>
                         <p>My Blog</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.php" aria-expanded="false">
+                    <a href="app.php?page=contact" aria-expanded="false">
                         <i class="fas fa-address-book"></i>
                         <p>Contact</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="setting.php" aria-expanded="false">
+                    <a href="app.php?page=setting" aria-expanded="false">
                         <i class="fas fa-wrench"></i>
                         <p>Settings</p>
                     </a>
