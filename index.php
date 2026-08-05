@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
 					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
 					<li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
 					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-					<li class="nav-item"><a href="project-crud-main/login.php" class="nav-link"><span>Login</span></a>
+					<li class="nav-item"><a href="admin/login.php" class="nav-link"><span>Login</span></a>
 					</li>
 				</ul>
 			</div>
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
 						<div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
 							data-scrollax-parent="true">
 							<div class="one-third js-fullheight order-md-last img"
-								style="background-image:url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+								style="background-image:url(admin/assets/img/<?= $v['image'] ?>);">
 								<div class="overlay"></div>
 							</div>
 							<div class="one-forth d-flex  align-items-center ftco-animate"
@@ -437,7 +437,7 @@ if (isset($_POST['submit'])) {
 					?>
 					<div class="<?= $colClass ?>">
 						<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-							style="background-image: url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+							style="background-image: url(admin/assets/img/<?= $v['image'] ?>);">
 							<div class="overlay"></div>
 							<div class="text text-center p-4">
 								<h3><a href="<?= $v['link'] ?>"><?= $v['title'] ?></a></h3>
@@ -467,7 +467,7 @@ if (isset($_POST['submit'])) {
 					<div class="col-md-4 d-flex ftco-animate">
 						<div class="blog-entry justify-content-end">
 							<a href="<?= $v['link'] ?>" class="block-20"
-								style="background-image: url(project-crud-main/assets/img/<?= $v['image'] ?>);">
+								style="background-image: url(admin/assets/img/<?= $v['image'] ?>);">
 							</a>
 							<div class="text mt-3 float-right d-block">
 								<div class="d-flex align-items-center mb-3 meta">
