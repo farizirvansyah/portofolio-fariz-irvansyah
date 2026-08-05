@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2026 at 10:08 AM
+-- Generation Time: Aug 05, 2026 at 09:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,15 @@ CREATE TABLE `contacts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at`, `update_at`) VALUES
+(1, 'Fariz Irvansyah', 'fariz.irvansyah@gmail.com', 'Ini Subject', 'eeaa', '2026-08-05 01:38:43', NULL),
+(2, 'Fariz Irvansyah', 'fariz.irvansyah@gmail.com', 'Ini Subject', 'eeaa2', '2026-08-05 01:39:16', NULL),
+(3, 'Fariz Irvansyah', 'fariz.irvansyah@gmail.com', 'Ini Subject', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam numquam ad illum nesciunt consequatur, dicta sint deserunt velit sequi fugit quos. Amet consequuntur repellat nobis placeat eligendi aut hic.', '2026-08-05 02:08:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,7 +299,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `myblog`
